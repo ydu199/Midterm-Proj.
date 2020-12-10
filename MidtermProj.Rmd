@@ -22,7 +22,7 @@ Airbnb is a known online rental marketplace for people. As a faithful customer o
 
 # Methods & Results
 ## Data 
-The data is a combined dataset of three datasets downloaded from the Insideairbnb website. The three datasets are summary information and metrics for listings in Hong Kong on May, June and October in 2020. No summary information on August and September. I cleaned the data using the tidyverse package, and subset the data from booking prices between 0 and 800 Hong Kong dollars and no missing value in columns and rows. The data contains summary information for accommodations in 17 neighbourhoods, including price, availability in one year, room type, minimum nights' stays and reviews per month.
+The data is a combined dataset of three datasets downloaded from the Insideairbnb website. The three datasets are summary information and metrics for listings in Hong Kong on May, June and October in 2020. No summary information on July, August and September. I cleaned the data using the tidyverse package, and subset the data from booking prices between 0 and 800 Hong Kong dollars and no missing value in columns and rows. The data contains summary information for accommodations in 17 neighbourhoods, including price, availability in one year, room type, minimum nights' stays and reviews per month.
 
 ## Exploratory Data Analysis
 
@@ -59,7 +59,7 @@ m0<-lm(price~minimum_nights+availability_365+reviews_per_month,data=airbnb)
 ```
 The variable reviews per month has a positive effect on price, 1 unit increase in reviews per month leads to 9.5 units increase in price holding other two variables at constant. The variables minimum nights' stays and availability in one year have a little negative effect on price. The intercept is large as 473.
 
-In order to account for the correlations of prices on the same neighbourhood and on the same room type, multilevel linear mixed effects models are developed by using lme4 package.
+In order to account for the correlations of prices on the same neighbourhood and on the same room type, multilevel linear mixed effects models are developed by using the lme4 package.
 
 ### Model Two. Multilevel linear mixed effects model: expand the Model One by allowing varying intercepts across neighbourhoods and room types.
 ```{r}
